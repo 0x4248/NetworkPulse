@@ -13,7 +13,7 @@ cmake ..
 make
 ```
 
-On the clients make sure the clients are running in the background.
+This should create the binaries `server` and `client`. On the clients make sure the clients are running in the background.
 
 ## Configuration
 
