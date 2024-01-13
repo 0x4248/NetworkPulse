@@ -17,7 +17,7 @@ On the clients make sure the clients are running in the background.
 
 ## Configuration
 
-Clients can be configured to talk to a specific server or port. The default is 192.168.1.1:2002
+Clients can be configured to talk to a specific server or port. The default is `192.168.1.1:2002`
 
 The port can be changed via the command line argument `-p`. The server can be changed via the command line argument `-s`.
 
