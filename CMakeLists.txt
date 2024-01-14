@@ -8,11 +8,26 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-project(NetworkPulse)
+project(NetworkPulse)d
 
-add_executable(client src/client.cpp src/modules/hostname.cpp)
-add_executable(server src/server.cpp)
+# Version
+set(PROJECT_VERSION_MAJOR 1)
+set(PROJECT_VERSION_MINOR 0)
+set(PROJECT_VERSION_PATCH 0)
 
-set_property(TARGET server client PROPERTY CXX_STANDARD 11)
+# C++ flags
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+
+
+# Client executable
+add_executable(client
+                src/client.cpp 
+                src/modules/hostname.cpp)
+
+# Server executable
+add_executable(server 
+                src/server.cpp)
 
 include_directories(include)
