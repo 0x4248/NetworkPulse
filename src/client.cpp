@@ -64,9 +64,6 @@ int main(int argc, char *argv[]) {
         }
 
         std::time_t current_time = std::time(nullptr);
-        //get local ip address
-
-        //std::string data = "NETPULSE,hostname,os," + std::to_string(current_time);
         std::string data = "NETPULSE," + get_hostname() + "," + OS + "," + std::to_string(current_time);
 
         int sendResult = send(clientSocket, data.c_str(), data.size() + 1, 0);
