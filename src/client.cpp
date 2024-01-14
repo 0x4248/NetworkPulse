@@ -19,13 +19,7 @@
 #include <cstring>
 #include <ifaddrs.h>
 
-#ifdef __linux__
-#define OS "Linux"
-#elif __APPLE__
-#define OS "MacOS"
-#elif __unix__
-#define OS "Unix"
-#endif
+#include "os.h"
 
 std::string get_hostname(){
     char hostname[1024];
@@ -33,7 +27,6 @@ std::string get_hostname(){
     gethostname(hostname, 1023);
     return hostname;
 }
-
 
 int main(int argc, char *argv[]) {
     std::cout << "NetworkPulse Client" << std::endl;

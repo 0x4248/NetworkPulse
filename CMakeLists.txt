@@ -14,3 +14,5 @@ add_executable(client src/client.cpp)
 add_executable(server src/server.cpp)
 
 set_property(TARGET server client PROPERTY CXX_STANDARD 11)
+
+include_directories(include)
