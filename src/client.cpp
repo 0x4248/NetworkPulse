@@ -20,13 +20,7 @@
 #include <ifaddrs.h>
 
 #include "os.h"
-
-std::string get_hostname(){
-    char hostname[1024];
-    hostname[1023] = '\0';
-    gethostname(hostname, 1023);
-    return hostname;
-}
+#include "hostname.h"
 
 int main(int argc, char *argv[]) {
     std::cout << "NetworkPulse Client" << std::endl;

@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.15)
 
 project(NetworkPulse)
 
-add_executable(client src/client.cpp)
+add_executable(client src/client.cpp src/modules/hostname.cpp)
 add_executable(server src/server.cpp)
 
 set_property(TARGET server client PROPERTY CXX_STANDARD 11)
