@@ -8,7 +8,7 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-project(NetworkPulse)d
+project(NetworkPulse)
 
 # Version
 set(PROJECT_VERSION_MAJOR 1)
@@ -28,6 +28,7 @@ add_executable(client
 
 # Server executable
 add_executable(server 
-                src/server.cpp)
+                src/server.cpp
+                src/modules/logger.cpp)
 
 include_directories(include)
