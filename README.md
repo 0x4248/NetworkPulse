@@ -13,6 +13,12 @@ cmake ..
 make
 ```
 
+or you can use the makefile
+
+```bash
+make
+```
+
 This should create the binaries `server` and `client`. On the clients make sure the clients are running in the background.
 
 ## Configuration
