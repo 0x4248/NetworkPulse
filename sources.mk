@@ -19,3 +19,4 @@ C-SOURCES += src/modules/hostname.cpp
 
 # SERVER SOURCES
 S-SOURCES += src/server.cpp
+S-SOURCES += src/modules/logger.cpp
