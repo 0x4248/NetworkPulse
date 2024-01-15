@@ -46,3 +46,7 @@ _deps
 
 ### MacOS ###
 *.DS_Store
+
+### Build ###
+bin/
+build/
