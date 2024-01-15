@@ -22,11 +22,12 @@
 
 #include "os.h"
 #include "hostname.h"
+#include "config.h"
 
 int main(int argc, char *argv[]) {
     std::cout << "NetworkPulse Client" << std::endl;
-    std::string pulse_server = "192.168.1.1";
-    int pulse_port = 2002;
+    std::string pulse_server = DEFAULT_SERVER_IP;
+    int pulse_port = DEFAULT_PORT;
     for (int i = 0; i < argc; i++){
         if (strcmp(argv[i], "-s") == 0){
             if (i + 1 < argc){

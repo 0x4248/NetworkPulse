@@ -11,18 +11,24 @@
 #include <string>
 #include <iostream>
 
+#include "config.h"
+
 void log(std::string type, std::string message){
-    if (type == "REGISTER"){
-        std::cout << "\033[1;32m[ REGISTER ]\t\033[0m " << message << std::endl;
-    } else if (type == "PULSE"){
-        std::cout << "\033[1;34m[ PULSE ]\t\033[0m " << message << std::endl;
-    } else if (type == "LOST"){
-        std::cout << "\033[1;31m[ LOST ]\t\033[0m " << message << std::endl;
-    } else if (type == "DEBUG"){
-        std::cout << "\033[1;37m[ DEBUG ]\t\033[0m " << message << std::endl;
-    } else if (type == "ERROR"){
-        std::cout << "\033[1;31m[ ERROR ]\t\033[0m " << message << std::endl;
-    } else {
-        std::cout << "\033[1;37m[ DEBUG ]\t\033[0m " << message << std::endl;
+    if (ENABLE_LOGGING){
+        if (type == "REGISTER"){
+            std::cout << "\033[1;32m[ REGISTER ]\t\033[0m " << message << std::endl;
+        } else if (type == "PULSE"){
+            if (SHOW_PULSES){
+                std::cout << "\033[1;34m[ PULSE ]\t\033[0m " << message << std::endl;
+            }
+        } else if (type == "LOST"){
+            std::cout << "\033[1;31m[ LOST ]\t\033[0m " << message << std::endl;
+        } else if (type == "DEBUG"){
+            std::cout << "\033[1;37m[ DEBUG ]\t\033[0m " << message << std::endl;
+        } else if (type == "ERROR"){
+            std::cout << "\033[1;31m[ ERROR ]\t\033[0m " << message << std::endl;
+        } else {
+            std::cout << "\033[1;37m[ DEBUG ]\t\033[0m " << message << std::endl;
+        }
     }
 }
