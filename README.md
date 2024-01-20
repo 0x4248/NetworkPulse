@@ -2,6 +2,20 @@
 
 A simple arp table like tool to see if clients are connected and alive on the network.
 
+## Prerequisites
+
+You will need to install the following packages:
+
+```bash
+sudo apt install cmake make build-essential
+```
+
+This repository uses the Kcongfig system for configuration. You will need to install the following packages:
+
+```bash
+pip3 install kconfiglib
+```
+
 ## Installation
 
 Build the server and client using cmake and then install the binaries.
