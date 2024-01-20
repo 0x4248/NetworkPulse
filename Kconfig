@@ -1,3 +1,10 @@
+# Network Pulse
+# A simple arp table like tool to see if clients are connected and alive on the network.
+# GitHub: https://www.github.com/lewisevans2007/NetworkPulse
+# Licence: GNU General Public License v3.0
+# By: Lewis Evans
+#
+# Kconfig file for Network Pulse
 
 config DEFAULT_PORT
     int "Default port"
@@ -17,7 +24,6 @@ config ENABLE_LOGGING
     help
       Enable logging to terminal.
 
-# next one relies on ENABLE_LOGGING
 config SHOW_PULSES
     bool "Show pulse logs"
     default y
