@@ -53,3 +53,12 @@ client-files:
 
 server-files:
 	@echo $(S-SOURCES)
+
+menuconfig:
+	@echo "[MAKE] Running menuconfig"
+	@menuconfig
+	@echo "[MAKE] Done running menuconfig"
+	@genconfig
+	@echo "[MAKE] Done generating config"
+	@mv config.h include/config.h
+	@echo "[MAKE] Done moving config"

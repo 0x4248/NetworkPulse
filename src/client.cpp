@@ -26,8 +26,8 @@
 
 int main(int argc, char *argv[]) {
     std::cout << "NetworkPulse Client" << std::endl;
-    std::string pulse_server = DEFAULT_SERVER_IP;
-    int pulse_port = DEFAULT_PORT;
+    std::string pulse_server = CONFIG_DEFAULT_SERVER_IP;
+    int pulse_port = CONFIG_DEFAULT_PORT;
     for (int i = 0; i < argc; i++){
         if (strcmp(argv[i], "-s") == 0){
             if (i + 1 < argc){

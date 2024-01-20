@@ -1,0 +1,26 @@
+
+config DEFAULT_PORT
+    int "Default port"
+    default 2002
+    help
+      Default port for the server to listen on.
+
+config DEFAULT_SERVER_IP
+    string "Default server IP"
+    default "192.168.1.1"
+    help
+      Default server IP for the server to listen on.
+
+config ENABLE_LOGGING
+    bool "Enable logging"
+    default y
+    help
+      Enable logging to terminal.
+
+# next one relies on ENABLE_LOGGING
+config SHOW_PULSES
+    bool "Show pulse logs"
+    default y
+    depends on ENABLE_LOGGING
+    help
+      Show pulse logs to terminal.
