@@ -11,11 +11,11 @@
 
 
 // Default port
-#define DEFAULT_PORT 2002
+#define CONFIG_DEFAULT_PORT 2002
 
 // Default server IP
-#define DEFAULT_SERVER_IP "192.168.1.1"
+#define CONFIG_DEFAULT_SERVER_IP "192.168.1.1"
 
 // Logging
-#define ENABLE_LOGGING true
-#define SHOW_PULSES true
+#define CONFIG_ENABLE_LOGGING 1
+#define CONFIG_SHOW_PULSES 1
