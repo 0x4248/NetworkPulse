@@ -10,6 +10,10 @@
 
 include sources.mk
 
+VERSION = 6
+PATCH = 6
+SUBLEVEL = 2
+
 CC = g++
 CFLAGS = -Wall -std=c++11 -g
 
@@ -18,20 +22,21 @@ BIN = bin
 all: init build-client build-server
 
 build-server:
-	@echo "[MAKE] Building server"
+	@echo "CC\tBuilding server"
 	@$(CC) $(CFLAGS) $(S-SOURCES) -I include -o $(BIN)/server
-	@echo "[MAKE] Done building server"
+	@echo "CC\tDone building server"
 
 build-client:
-	@echo "[MAKE] Building client"
+	@echo "CC\tBuilding client"
 	@$(CC) $(CFLAGS) $(C-SOURCES) -I include -o $(BIN)/client
-	@echo "[MAKE] Done building client"
+	@echo "CC\tDone building client"
 
 init:
-	@echo "[MAKE] Creating bin directory"
+	@echo "MKDIR\tCreating bin directory"
 	@mkdir -p $(BIN)
 
 help:
+	@echo "Network Pulse Makefile (v$(VERSION).$(PATCH).$(SUBLEVEL))"
 	@echo "Usage: make [target]"
 	@echo "Targets:"
 	@echo "  all: Builds both the client and the server"
@@ -42,11 +47,12 @@ help:
 	@echo "  clean: Cleans up the bin directory"
 	@echo "  client-files: Prints the client source files"
 	@echo "  server-files: Prints the server source files"
+	@echo "  menuconfig: Runs menuconfig"
 
 clean:
-	@echo "[MAKE] Cleaning up"
+	@echo "RM\tCleaning up"
 	@rm -rf $(BIN)
-	@echo "[MAKE] Done cleaning up"
+	@echo "RM\tDone cleaning up"
 
 client-files:
 	@echo $(C-SOURCES)
@@ -55,10 +61,10 @@ server-files:
 	@echo $(S-SOURCES)
 
 menuconfig:
-	@echo "[MAKE] Running menuconfig"
+	@echo "CONF\tRunning menuconfig"
 	@menuconfig
-	@echo "[MAKE] Done running menuconfig"
+	@echo "CONF\tDone running menuconfig"
 	@genconfig
-	@echo "[MAKE] Done generating config"
+	@echo "CONF\tDone generating config"
 	@mv config.h include/config.h
-	@echo "[MAKE] Done moving config"
+	@echo "CONF\tDone moving config"
