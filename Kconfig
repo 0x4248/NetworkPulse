@@ -6,6 +6,8 @@
 #
 # Kconfig file for Network Pulse
 
+menu "Client options"
+
 config DEFAULT_PORT
     int "Default port"
     default 2002
@@ -18,8 +20,12 @@ config DEFAULT_SERVER_IP
     help
       Default server IP for the server to listen on.
 
+endmenu
+
+menu "Server options"
+
 config ENABLE_LOGGING
-    bool "Enable logging"
+    bool "Enable console logging"
     default y
     help
       Enable logging to terminal.
@@ -30,3 +36,22 @@ config SHOW_PULSES
     depends on ENABLE_LOGGING
     help
       Show pulse logs to terminal.
+
+menu "Logging options"
+
+config SAVE_PULSE_LOGS
+    bool "Save pulse logs"
+    default y
+    depends on ENABLE_LOGGING
+    help
+      Save pulse logs to file.
+
+config PULSE_LOG_FILE_NAME
+    string "Pulse log file name"
+    default "pulse.log"
+    depends on SAVE_PULSE_LOGS
+    help
+      Pulse log file name.
+
+endmenu
+endmenu

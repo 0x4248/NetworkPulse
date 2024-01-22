@@ -50,3 +50,7 @@ _deps
 ### Build ###
 bin/
 build/
+
+## CONFIG ##
+.*
+config.h

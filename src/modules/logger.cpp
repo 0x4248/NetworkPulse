@@ -10,12 +10,25 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #include "config.h"
+
+#ifdef CONFIG_SAVE_PULSE_LOGS
+void save_pulse_log(std::string message){
+    std::ofstream pulse_log_file;
+    pulse_log_file.open(CONFIG_PULSE_LOG_FILE_NAME, std::ios::app);
+    pulse_log_file << message << std::endl;
+    pulse_log_file.close();
+}
+#else
+void save_pulse_log(std::string message){}
+#endif
 
 #ifdef CONFIG_SHOW_PULSES
 void pulse_log(std::string message){
     std::cout << "\033[1;34m[ PULSE ]\t\033[0m " << message << std::endl;
+    save_pulse_log("PULSE: " + message);
 }
 #else
 void pulse_log(std::string message){
@@ -27,10 +40,12 @@ void pulse_log(std::string message){
 void log(std::string type, std::string message){
     if (type == "REGISTER"){
         std::cout << "\033[1;32m[ REGISTER ]\t\033[0m " << message << std::endl;
+        save_pulse_log("REGISTER: " + message);
     } else if (type == "PULSE"){
         pulse_log(message);
     } else if (type == "LOST"){
         std::cout << "\033[1;31m[ LOST ]\t\033[0m " << message << std::endl;
+        save_pulse_log("LOST: " + message);
     } else if (type == "DEBUG"){
         std::cout << "\033[1;37m[ DEBUG ]\t\033[0m " << message << std::endl;
     } else if (type == "ERROR"){
@@ -41,6 +56,8 @@ void log(std::string type, std::string message){
 }
 #else
 void log(std::string type, std::string message){
-    return;
+
+
 }
 #endif
+
