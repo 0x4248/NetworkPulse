@@ -48,6 +48,7 @@ help:
 	@echo "  client-files: Prints the client source files"
 	@echo "  server-files: Prints the server source files"
 	@echo "  menuconfig: Runs menuconfig"
+	@echo "  defconfig: Copies the default config"
 
 clean:
 	@echo "RM\tCleaning up"
