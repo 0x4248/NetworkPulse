@@ -68,3 +68,8 @@ menuconfig:
 	@echo "CONF\tDone generating config"
 	@mv config.h include/config.h
 	@echo "CONF\tDone moving config"
+
+defconfig:
+	@echo "CP\tCopying default config"
+	@cp tools/config/defconfig.conf .config
+	@echo "CP\tDone copying default config"
