@@ -24,6 +24,19 @@ endmenu
 
 menu "Server options"
 
+config PULSE_TABLE
+    bool "Enable pulse table"
+    default y
+    help
+      A pulse table allows NetworkPulse to create a file that stores the currently connected clients.
+
+config PULSE_TABLE_FILE_NAME
+    string "Pulse table file name"
+    default "pulse_table"
+    depends on PULSE_TABLE
+    help
+      Pulse table file name. Set this to a path to store the file in a different location. e.g ~/pulse_table or leave as a file name to store in the current directory.
+
 config ENABLE_LOGGING
     bool "Enable console logging"
     default y
@@ -36,8 +49,6 @@ config SHOW_PULSES
     depends on ENABLE_LOGGING
     help
       Show pulse logs to terminal.
-
-menu "Logging options"
 
 config SAVE_PULSE_LOGS
     bool "Save pulse logs"
@@ -53,5 +64,4 @@ config PULSE_LOG_FILE_NAME
     help
       Pulse log file name.
 
-endmenu
 endmenu

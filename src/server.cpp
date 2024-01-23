@@ -18,13 +18,16 @@
 #include <cstring>
 #include <ctime>
 #include <thread>
+#include <fstream>
 
 #include "logger.h"
+#include "table.h"
 
 std::vector<std::string> ip_addresses;
 std::vector<std::string> hostnames;
 std::vector<std::string> operating_systems;
 std::vector<std::string> times_sent;
+
 
 void register_checker(){
     while (true){
@@ -37,6 +40,7 @@ void register_checker(){
                 hostnames.erase(hostnames.begin() + i);
                 operating_systems.erase(operating_systems.begin() + i);
                 times_sent.erase(times_sent.begin() + i);
+                update_table(ip_addresses, hostnames, operating_systems, times_sent);
             }
         }
         sleep(1);
@@ -55,6 +59,8 @@ int main() {
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_addr.s_addr = INADDR_ANY;
     serverAddress.sin_port = htons(2002);
+
+    init_table();
 
     if (bind(serverSocket, (sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) {
         std::cerr << "Error binding socket.\n";
@@ -111,9 +117,11 @@ int main() {
             operating_systems.push_back(data_vector[2]);
             times_sent.push_back(data_vector[3]);
             log("REGISTER", "Registered client with IP: " + IP + " and hostname: " + data_vector[1]);
+            update_table(ip_addresses, hostnames, operating_systems, times_sent);
 
         } else {
             log("PULSE", "Pulsed client with IP: " + IP + " and hostname: " + data_vector[1]);
+            update_table(ip_addresses, hostnames, operating_systems, times_sent);
         }
         close(clientSocket);
 
