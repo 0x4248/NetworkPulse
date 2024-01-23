@@ -5,8 +5,17 @@
  * Licence: GNU General Public License v3.0
  * By: Lewis Evans
  *
- * Main configuration file 
+ * Main configuration file.
  * 
+ * DO NOT JUST EDIT THIS FILE.
+ * 
+ * Its better if you use make menuconfig to generate 
+ * config. Then you are less likely to screw something
+ * up. This file also contains the deafult configuration
+ * just incase someone building this project cant install
+ * LibKconfig.
+ * 
+ * After running make menuconfig these comments will be gone.
  */
 
 
