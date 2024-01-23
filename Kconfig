@@ -24,6 +24,12 @@ endmenu
 
 menu "Server options"
 
+config SERVER_PORT
+    int "Server port"
+    default 2002
+    help
+      Server port for the server to listen on.
+
 config PULSE_TABLE
     bool "Enable pulse table"
     default y

@@ -22,6 +22,7 @@
 
 #include "logger.h"
 #include "table.h"
+#include "config.h"
 
 std::vector<std::string> ip_addresses;
 std::vector<std::string> hostnames;
@@ -58,8 +59,8 @@ int main() {
     sockaddr_in serverAddress{};
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_addr.s_addr = INADDR_ANY;
-    serverAddress.sin_port = htons(2002);
-
+    serverAddress.sin_port = htons(CONFIG_SERVER_PORT);
+    
     init_table();
 
     if (bind(serverSocket, (sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) {

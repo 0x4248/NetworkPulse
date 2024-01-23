@@ -34,3 +34,6 @@
 // Pulse table
 #define CONFIG_PULSE_TABLE 1
 #define CONFIG_PULSE_TABLE_FILE_NAME "pulse_table"
+
+// Server config
+#define CONFIG_SERVER_PORT 2002
