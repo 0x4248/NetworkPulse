@@ -5,7 +5,7 @@
  * Licence: GNU General Public License v3.0
  * By: Lewis Evans
  *
- * Main configuration file
+ * Main configuration file 
  * 
  */
 
@@ -19,3 +19,5 @@
 // Logging
 #define CONFIG_ENABLE_LOGGING 1
 #define CONFIG_SHOW_PULSES 1
+#define CONFIG_SAVE_PULSE_LOGS 1
+#define CONFIG_PULSE_LOG_FILE_NAME 1
