@@ -11,8 +11,14 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 #include "config.h"
+
+#ifndef CONFIG_PULSE_LOG_FILE_NAME
+#define CONFIG_PULSE_LOG_FILE_NAME "pulse_log"
+#endif
+
 
 #ifdef CONFIG_SAVE_PULSE_LOGS
 void save_pulse_log(std::string message){
@@ -24,6 +30,7 @@ void save_pulse_log(std::string message){
 #else
 void save_pulse_log(std::string message){}
 #endif
+
 
 #ifdef CONFIG_SHOW_PULSES
 void pulse_log(std::string message){
