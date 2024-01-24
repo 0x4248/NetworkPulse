@@ -23,9 +23,10 @@
 #include "os.h"
 #include "hostname.h"
 #include "config.h"
+#include "version.h"
 
 int main(int argc, char *argv[]) {
-    std::cout << "NetworkPulse Client" << std::endl;
+    std::cout << "NetworkPulse Client" << " (" << VERSION << "." << PATCH << "." << SUBLEVEL << ")\n";
     std::string pulse_server = CONFIG_DEFAULT_SERVER_IP;
     int pulse_port = CONFIG_DEFAULT_PORT;
     for (int i = 0; i < argc; i++){

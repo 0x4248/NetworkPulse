@@ -23,6 +23,7 @@
 #include "logger.h"
 #include "table.h"
 #include "config.h"
+#include "version.h"
 
 std::vector<std::string> ip_addresses;
 std::vector<std::string> hostnames;
@@ -49,7 +50,7 @@ void register_checker(){
 }
 
 int main() {
-    std::cout << "NetworkPulse Server" << std::endl;
+    std::cout << "NetworkPulse Server (" << VERSION << "." << PATCH << "." << SUBLEVEL << ")\n";
     int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (serverSocket == -1) {
         std::cerr << "Error creating socket.\n";
