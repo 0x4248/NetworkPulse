@@ -49,6 +49,8 @@ help:
 	@echo "  server-files: Prints the server source files"
 	@echo "  menuconfig: Runs menuconfig"
 	@echo "  defconfig: Copies the default config"
+	@echo "  backupconfig: Backs up the current config"
+	@echo "  restoreconfig: Restores the backed up config"
 
 clean:
 	@echo "RM\tCleaning up"
@@ -74,3 +76,13 @@ defconfig:
 	@echo "CP\tCopying default config"
 	@cp tools/config/defconfig.conf .config
 	@echo "CP\tDone copying default config"
+
+backupconfig:
+	@echo "CP\tBacking up config"
+	@cp include/config.h tools/config/backup.h
+	@echo "CP\tDone backing up config"
+
+restoreconfig:
+	@echo "CP\tRestoring config"
+	@cp tools/config/backup.h include/config.h
+	@echo "CP\tDone restoring config"
