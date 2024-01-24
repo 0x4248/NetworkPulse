@@ -10,16 +10,19 @@
 
 include sources.mk
 
-VERSION = 6
-PATCH = 6
-SUBLEVEL = 2
+VERSION = 1
+PATCH = 0
+SUBLEVEL = 0
 
 CC = g++
-CFLAGS = -Wall -std=c++11 -g
+CFLAGS = -std=c++11 -g
+
+C_CC = gcc
+C_CFLAGS = -Wall -std=c11 -g
 
 BIN = bin
 
-all: init build-client build-server
+all: init genversion build-client build-server
 
 build-server:
 	@echo "CC\tBuilding server"
@@ -83,6 +86,9 @@ backupconfig:
 	@echo "CP\tDone backing up config"
 
 restoreconfig:
-	@echo "CP\tRestoring config"
 	@cp tools/config/backup.h include/config.h
-	@echo "CP\tDone restoring config"
+
+genversion:
+	@mkdir -p tools/version/build
+	@$(C_CC) tools/version/set_version.c -o tools/version/build/set_version
+	@tools/version/build/set_version

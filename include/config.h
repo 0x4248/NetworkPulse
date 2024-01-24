@@ -37,3 +37,6 @@
 
 // Server config
 #define CONFIG_SERVER_PORT 2002
+
+//version
+#define VERSION
