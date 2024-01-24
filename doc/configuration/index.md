@@ -2,7 +2,7 @@
 
 Network pulse uses the Kconfig system. This allows you to configure the entire project from a single menu.
 
-## Config prerequisites
+## Config prerequisites
 
 - Build-essential
 - Make
