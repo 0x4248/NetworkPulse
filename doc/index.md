@@ -4,5 +4,5 @@ Welcome to the NetworkPulse documentation. This documentation is a work in progr
 
 ## Key parts of this documentation
 
-- [Building](doc/building/index.md)
-- [Configuration](doc/configuration/index.md)
+- [Building](building/index.md)
+- [Configuration](configuration/index.md)
