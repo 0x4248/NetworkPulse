@@ -29,6 +29,7 @@ add_executable(client
 # Server executable
 add_executable(server 
                 src/server.cpp
-                src/modules/logger.cpp)
+                src/modules/logger.cpp
+                src/modules/table.cpp)
 
 include_directories(include)
