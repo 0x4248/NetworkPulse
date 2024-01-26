@@ -62,8 +62,8 @@ int main(int argc, char *argv[]) {
         inet_pton(AF_INET, pulse_server.c_str(), &serverAddress.sin_addr);
 
         if (connect(clientSocket, (sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) {
-            std::cerr << "Error connecting to server... will try again in 2 seconds.\n";
-            sleep(2);
+            std::cerr << "Error connecting to server... will try again in " << CONFIG_RETRY_TIMEOUT << " seconds.\n";
+            sleep(CONFIG_RETRY_TIMEOUT);
             continue;
         }
 
@@ -77,6 +77,6 @@ int main(int argc, char *argv[]) {
         }
 
         close(clientSocket);
-        sleep(1);
+        sleep(CONFIG_PULSE_PING_INTERVAL);
     }
 }

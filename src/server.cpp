@@ -41,7 +41,7 @@ void register_checker(){
         std::time_t current_time = std::time(nullptr);
         for (int i = 0; i < times_sent.size(); i++){
             int time_sent_int = std::stoi(times_sent[i]);
-            if (current_time - time_sent_int > 5){
+            if (current_time - time_sent_int > CONFIG_PULSE_TIMEOUT){
                 log("LOST", "Lost client with IP: " + ip_addresses[i] + " and hostname: " + hostnames[i]);
                 ip_addresses.erase(ip_addresses.begin() + i);
                 hostnames.erase(hostnames.begin() + i);
@@ -50,7 +50,7 @@ void register_checker(){
                 update_table(ip_addresses, hostnames, operating_systems, times_sent);
             }
         }
-        sleep(1);
+        sleep(CONFIG_PULSE_TIMEOUT);
     }
 }
 

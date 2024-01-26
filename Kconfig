@@ -20,6 +20,18 @@ config DEFAULT_SERVER_IP
     help
       Default server IP for the server to listen on.
 
+config PULSE_PING_INTERVAL
+    int "Pulse ping interval"
+    default 1
+    help
+      Pulse ping interval in seconds. How often the client pings the server.
+
+config RETRY_TIMEOUT
+    int "Retry timeout"
+    default 5
+    help
+      Retry timeout in seconds. How long the client waits before retrying to connect to the server.
+
 endmenu
 
 menu "Server options"
@@ -29,6 +41,18 @@ config SERVER_PORT
     default 2002
     help
       Server port for the server to listen on.
+
+config PULSE_TIMEOUT
+    int "Pulse timeout"
+    default 5
+    help
+      Pulse timeout in seconds. If a client does not pulse within this time, it will be removed from the pulse table.
+
+config PULSE_CHECK_INTERVAL
+    int "Pulse interval"
+    default 1
+    help
+      Pulse interval in seconds. How often the server checks for pulses.
 
 config PULSE_TABLE
     bool "Enable pulse table"
