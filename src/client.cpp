@@ -25,6 +25,13 @@
 #include "config.h"
 #include "version.h"
 
+
+/**
+ * Main function for client
+ * @param argc Number of arguments passed to program
+ * @param argv Arguments passed to program
+ * @return Exit code
+*/
 int main(int argc, char *argv[]) {
     std::cout << "NetworkPulse Client" << " (" << VERSION << "." << PATCH << "." << SUBLEVEL << ")\n";
     std::string pulse_server = CONFIG_DEFAULT_SERVER_IP;

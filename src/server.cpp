@@ -30,7 +30,12 @@ std::vector<std::string> hostnames;
 std::vector<std::string> operating_systems;
 std::vector<std::string> times_sent;
 
-
+/**
+ * Register checker thread
+ * @details Checks if clients have sent a pulse in the last 5 seconds
+ * @param void
+ * @return void
+*/
 void register_checker(){
     while (true){
         std::time_t current_time = std::time(nullptr);
@@ -49,6 +54,12 @@ void register_checker(){
     }
 }
 
+
+/**
+ * Main function for server
+ * @param void
+ * @return Exit code
+*/
 int main() {
     std::cout << "NetworkPulse Server (" << VERSION << "." << PATCH << "." << SUBLEVEL << ")\n";
     int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
