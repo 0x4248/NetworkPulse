@@ -51,6 +51,9 @@ _deps
 bin/
 build/
 
-## CONFIG ##
+## Other ##
 .*
+!.gitignore
 config.h
+pulse_table
+*.log
