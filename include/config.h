@@ -37,3 +37,9 @@
 
 // Server config
 #define CONFIG_SERVER_PORT 2002
+#define CONFIG_PULSE_TIMEOUT 5
+#define CONFIG_PULSE_CHECK_INTERVAL 1
+
+// Client config
+#define CONFIG_PULSE_PING_INTERVAL 1
+#define CONFIG_RETRY_TIMEOUT 2
