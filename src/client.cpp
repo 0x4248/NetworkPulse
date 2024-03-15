@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
             }
         }
     }
+    
     int clientSocket;
     clientSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (clientSocket == -1) {
