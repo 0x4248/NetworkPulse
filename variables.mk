@@ -4,7 +4,7 @@
 # Licence: GNU General Public License v3.0
 # By: Lewis Evans
 #
-# Makefile variables for the main makefile:
+# Makefile variables for the main makefile
 
 CC = g++
 CFLAGS = -std=c++11 -g
