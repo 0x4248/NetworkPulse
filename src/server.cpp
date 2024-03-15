@@ -97,7 +97,6 @@ int main() {
         }
 
         char buffer[4096];
-        memset(buffer, 0, 4096);
         int bytesReceived = recv(clientSocket, buffer, 4096, 0);
         if (bytesReceived == -1) {
             std::cerr << "Error in recv().\n";
