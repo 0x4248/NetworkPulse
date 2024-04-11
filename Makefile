@@ -1,26 +1,40 @@
 # Network Pulse
 # A simple arp table like tool to see if clients are connected and alive on the network.
-# GitHub: https://www.github.com/lewisevans2007/NetworkPulse
+# GitHub: https://www.github.com/0x4248/NetworkPulse
 # Licence: GNU General Public License v3.0
-# By: Lewis Evans
+# By: 0x4248
 #
-# Makefile
+# Main makefile
 #
-# Want to add a new source file? Add it to sources.mk
+# This makefile reads two files sources.mk and variables.mk, sources.mk contains 
+# the sources for the server and the client. The variables.mk contains all the 
+# variables for the compiler and all of its options. This makefile should only 
+# contain rules and the version variables. 
+#
+# For a full list of rules and their description run make help.
+#
+# Is it recommended that you run make menuconfig to configure this project
+# before modifying or installing on to a system. From menuconfig you will see
+# two main menus one for the server and one for the client from there you can
+# configure default ports, default IP addresses and logging settings. In order
+# to run menuconfig you will need to have kconfiglib installed.
+#
+# You can install kconfiglib using the python package manager. Just run pip install
+# kconfiglib. After that you can run make menuconfig. Once you exit menuconfig the
+# makefile will run genconfig which will turn the .config file into a C header file
+# stored in include/config.h. Changes to this file can be reverted by running make 
+# defconfig and make restoreconfig.
 
 include sources.mk
+include variables.mk
 
+# Version 
 VERSION = 1
 PATCH = 0
 SUBLEVEL = 0
 
-CC = g++
-CFLAGS = -std=c++11 -g
 
-C_CC = gcc
-C_CFLAGS = -Wall -std=c11 -g
-
-BIN = bin
+# Rules
 
 all: init genversion build-client build-server
 
@@ -70,7 +84,7 @@ menuconfig:
 	@echo "CONF\tRunning menuconfig"
 	@menuconfig
 	@echo "CONF\tDone running menuconfig"
-	@genconfig
+	@genconfigq
 	@echo "CONF\tDone generating config"
 	@mv config.h include/config.h
 	@echo "CONF\tDone moving config"
