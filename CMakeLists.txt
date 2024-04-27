@@ -19,17 +19,13 @@ set(PROJECT_VERSION_PATCH 0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-
+# Debug flags
+set(CLIENT_FILES src/client.cpp src/modules/hostname.cpp)
+set(SERVER_FILES src/server.cpp src/modules/logger.cpp src/modules/table.cpp)
 
 # Client executable
-add_executable(client
-                src/client.cpp 
-                src/modules/hostname.cpp)
-
+add_executable(client ${CLIENT_FILES})
 # Server executable
-add_executable(server 
-                src/server.cpp
-                src/modules/logger.cpp
-                src/modules/table.cpp)
+add_executable(server ${SERVER_FILES})
 
 include_directories(include)
