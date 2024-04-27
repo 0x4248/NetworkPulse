@@ -15,10 +15,8 @@
 #include <arpa/inet.h>
 #include <vector>
 #include <string>
-#include <cstring>
 #include <ctime>
 #include <thread>
-#include <fstream>
 
 #include "logger.h"
 #include "table.h"

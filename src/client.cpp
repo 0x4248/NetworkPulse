@@ -17,7 +17,6 @@
 #include <vector>
 #include <string>
 #include <cstring>
-#include <ifaddrs.h>
 #include <ctime>
 
 #include "os.h"
