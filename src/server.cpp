@@ -34,7 +34,7 @@ std::vector<std::string> times_sent;
  * @param void
  * @return void
 */
-void register_checker(){
+[[noreturn]] void register_checker(){
     while (true){
         std::time_t current_time = std::time(nullptr);
         for (int i = 0; i < times_sent.size(); i++){
