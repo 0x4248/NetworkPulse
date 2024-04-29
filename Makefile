@@ -33,9 +33,7 @@ VERSION = 1
 PATCH = 0
 SUBLEVEL = 0
 
-
 # Rules
-
 all: init genversion build-client build-server
 
 build-server:
