@@ -66,6 +66,7 @@ help:
 	@echo "  defconfig: Copies the default config"
 	@echo "  backupconfig: Backs up the current config"
 	@echo "  restoreconfig: Restores the backed up config"
+	@echo "  genversion: Generates the version file"
 
 clean:
 	@echo "RM\tCleaning up"
